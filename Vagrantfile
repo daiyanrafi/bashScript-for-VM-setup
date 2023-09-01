@@ -13,3 +13,18 @@ Vagrant.configure("2") do |config|
     jenkins.vm.provision "shell", path: "E:/vagrant-vms/jenkins/jenkins.sh"
   end # Add this line to close the jenkins block
 end # Add this line to close the config block
+
+# For Nexus setup
+
+config.vm.define "nexus" do |nexus|
+  nexus.vm.box = "geerlingguy/centos7"
+  nexus.vm.network "private_network", ip: "192.168.10.13"
+  nexus.vm.provider "virtualbox" do |vb|
+    vb.memory = "2560"
+    vb.cpus = 2 # Set the number of CPUs
+  end # Add this line to close the vb block
+
+  # Provisioner to run the shell script
+  nexus.vm.provision "shell", path: "E:/vagrant-vms/nexus/nexus.sh"
+end # Add this line to close the nexus block
+end # Add this line to close the config block
