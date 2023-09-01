@@ -28,3 +28,20 @@ config.vm.define "nexus" do |nexus|
   nexus.vm.provision "shell", path: "E:/vagrant-vms/nexus/nexus.sh"
 end # Add this line to close the nexus block
 end # Add this line to close the config block
+
+# For Sonarqube,nginx,postgresql setup
+
+config.vm.define "sonarqube" do |sonarqube|
+  sonarqube.vm.box = "geerlingguy/ubuntu2004"
+  sonarqube.vm.network "private_network", ip: "192.168.10.15"
+  sonarqube.vm.provider "virtualbox" do |vb|
+    vb.memory = "4096"
+    vb.cpus = 4 # Set the number of CPUs
+  end
+
+  sonarqube.vm.boot_timeout = 250 # Set the boot timeout
+
+  # Provisioner to run the shell script
+  sonarqube.vm.provision "shell", path: "E:/vagrant-vms/sonarqube/sonar-setup.sh"
+end
+end
