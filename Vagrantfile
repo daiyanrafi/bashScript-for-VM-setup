@@ -1,4 +1,4 @@
-# For jenkins setup
+# For JENKINS setup
 
 Vagrant.configure("2") do |config|
   config.vm.define "jenkins" do |jenkins|
@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   end # Add this line to close the jenkins block
 end # Add this line to close the config block
 
-# For Nexus setup
+# For NEXUS setup
 
 config.vm.define "nexus" do |nexus|
   nexus.vm.box = "geerlingguy/centos7"
@@ -29,7 +29,7 @@ config.vm.define "nexus" do |nexus|
 end # Add this line to close the nexus block
 end # Add this line to close the config block
 
-# For Sonarqube,nginx,postgresql setup
+# For SONARQUBE, NGINX, POSTGRESQL setup
 
 config.vm.define "sonarqube" do |sonarqube|
   sonarqube.vm.box = "geerlingguy/ubuntu2004"
